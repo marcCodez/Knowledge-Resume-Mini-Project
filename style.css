@@ -61,16 +61,21 @@ h1 {
 	padding: 1rem;
 	background: var(--secondary-color);
 	transition: all 0.5s ease-in-out;
+	/* comment the below attributes to see where the transform begins */
+	visibility: hidden;
+	opacity: 0;
 }
 
 /* Right Side */
 #timeline ul li:nth-child(odd) div {
 	left: 2.5rem;
+	transform: translate(12.5rem, 0);
 }
 
 /* Left Side */
 #timeline ul li:nth-child(even) div {
 	left: -27.125rem;
+	transform: translate(-12.5rem, 0);
 }
 
 /* Dots */
@@ -83,7 +88,8 @@ h1 {
 	/* size of dot */
 	width: 1.5625rem;
 	height: 1.5625rem;
-	background: var(--secondary-color);
+	/* inherit white color */
+	background: inherit;
 	/* will move it directly to the middle of the line */
 	transform: translateX(-50%);
 	border-radius: 50%;
@@ -120,6 +126,19 @@ h1 {
 	/* certain parts we make transparent and others colored */
 	/* top right bottom left */
 	border-color: transparent transparent transparent var(--secondary-color);
+}
+
+/* Show Boxes */
+/* when item contains the class show remove transform to move item to the centre */
+#timeline ul li.show div {
+	transform: none;
+	visibility: visible;
+	opacity: 1;
+}
+
+/* color in dot when show class is added */
+#timeline ul li.show::after {
+	background: var(--secondary-color);
 }
 
 @media (max-width: 56.25rem) {
